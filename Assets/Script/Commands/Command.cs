@@ -4,12 +4,12 @@ using UnityEngine;
 using System.Linq;
 
 public abstract class Command : ScriptableObject {
-    public string verb;
+    public List<string> verbs;
 
     public abstract void Execute (string[] words);
 
     protected void Log (string text) {
-        TerminalManager.instance.WriteSlow(text);
+        TerminalManager.instance.LogSystemAnswer(text);
     }
 
     protected string Nouns (string[] words) {

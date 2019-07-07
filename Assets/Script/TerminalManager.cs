@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
 
 public class TerminalManager : MonoBehaviour {
     public static TerminalManager instance;
-    public List<string> log;
-    public TextMeshProUGUI logObject;
+    public TextMeshProUGUI log;
     public TMP_InputField inputField;
     public List<Command> commands;
     public Command defaultCommand;
@@ -15,15 +13,11 @@ public class TerminalManager : MonoBehaviour {
 
     private void Start () {
         ResetInputField ();
-        DisplayLog ();
+        ClearLog();
         instance = this;
     }
 
     private void Update () {
-        if (Input.GetKeyDown(KeyCode.A)) {
-            DisplayLog();
-        }
-
         if (Input.GetKeyDown(KeyCode.Return)) SubmitInput(inputField.text);
     }
 
@@ -32,10 +26,8 @@ public class TerminalManager : MonoBehaviour {
 
         if (input != "") {
             input = input.ToLower();
-            AddToLog("");
-            AddToLog ("> "+input);
+            LogPlayerCommand(input);
             Parse(input);
-            DisplayLog();
         }
     }
 
@@ -44,12 +36,28 @@ public class TerminalManager : MonoBehaviour {
         inputField.text = null;
     }
 
-    public void AddToLog (string text) {
-        log.Add(text);
+    public void LogPlayerCommand (string text) {
+        AddToLog("\n> "+text);
     }
 
-    private void DisplayLog () {
-        logObject.text = string.Join("\n", log.ToArray());
+    public void LogSystemAnswer (string text) {
+        StartCoroutine(_LogSystemAnswer("\n"+text+"\n"));
+    }
+
+    private IEnumerator _LogSystemAnswer (string text) {
+        AddToLog ("");
+        for (int i=0; i<text.Length; i++) {
+            yield return new WaitForSeconds (1/lettersPerSec);
+            AddToLog(text[i].ToString());
+        }
+    }
+
+    private void AddToLog (string text) {
+        log.text += text;
+    }
+
+    private void ClearLog () {
+        log.text = "";
     }
 
     private void Parse (string input) {
@@ -57,24 +65,17 @@ public class TerminalManager : MonoBehaviour {
 
         bool answered = false;
         foreach (Command command in commands) {
-            if (words[0] == command.verb.ToLower()) {
-                command.Execute(words);
-                answered = true;
+            foreach (string verb in command.verbs) {
+                if (words[0] == verb.ToLower()) {
+                    command.Execute(words);
+                    answered = true;
+                    break;
+                }
             }
         }
 
         if (!answered) {
             defaultCommand.Execute(words);
-        }
-    }
-
-    public void WriteSlow (string text) { StartCoroutine(_WriteSlow(text)); }
-    public IEnumerator _WriteSlow (string text) {
-        AddToLog ("");
-        for (int i=0; i<text.Length; i++) {
-            yield return new WaitForSeconds (1/lettersPerSec);
-            log[log.Count - 1] += text[i];
-            DisplayLog();
         }
     }
 }

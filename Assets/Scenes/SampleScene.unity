@@ -149,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e89d3f9d0662b845ad62983a5414199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  log: []
-  logObject: {fileID: 1800403645}
+  log: {fileID: 1800403645}
   inputField: {fileID: 1186884943}
   commands:
   - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
