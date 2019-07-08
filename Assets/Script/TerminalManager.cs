@@ -7,7 +7,6 @@ public class TerminalManager : MonoBehaviour {
     public static TerminalManager instance;
     public TextMeshProUGUI log;
     public TMP_InputField inputField;
-    public List<Command> commands;
     public Command defaultCommand;
     public float lettersPerSec;
 
@@ -25,9 +24,8 @@ public class TerminalManager : MonoBehaviour {
         ResetInputField ();
 
         if (input != "") {
-            input = input.ToLower();
             LogPlayerCommand(input);
-            Parse(input);
+            ParsingManager.instance.Parse(input);
         }
     }
 
@@ -57,25 +55,6 @@ public class TerminalManager : MonoBehaviour {
     }
 
     private void ClearLog () {
-        log.text = "";
-    }
-
-    private void Parse (string input) {
-        string [] words = input.Split(new char[] {' '});
-
-        bool answered = false;
-        foreach (Command command in commands) {
-            foreach (string verb in command.verbs) {
-                if (words[0] == verb.ToLower()) {
-                    command.Execute(words);
-                    answered = true;
-                    break;
-                }
-            }
-        }
-
-        if (!answered) {
-            defaultCommand.Execute(words);
-        }
+        log.text = null;
     }
 }

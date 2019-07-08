@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName="Kepler/Actions/Wake")]
 public class Wake : Command {
-    public override void Execute (string[] words) {
-        Log ("Unfreezing "+Nouns(words, 0));
+    public override void Execute (string input) {
+        Log ("Unfreezing " + RemoveVerbs(input));
     }
 }
