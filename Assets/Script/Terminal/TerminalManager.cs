@@ -4,11 +4,17 @@ using UnityEngine;
 using TMPro;
 
 public class TerminalManager : MonoBehaviour {
-    public static TerminalManager instance;
+    [Header("CONTENT")]
+    public float lettersPerSec;
+
+    [Header("REFERENCES")]
     public TextMeshProUGUI log;
     public TMP_InputField inputField;
-    public Command defaultCommand;
-    public float lettersPerSec;
+    
+    //[Header("STATE")]
+
+    [HideInInspector]
+    public static TerminalManager instance;
 
     private void Start () {
         ResetInputField ();

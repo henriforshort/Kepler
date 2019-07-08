@@ -25,7 +25,7 @@ public abstract class Command : ScriptableObject {
 
     protected string RemoveWords (string input, List<string> wordsToRemove) {
         foreach (string word in wordsToRemove) {
-            input = RemoveWord(input, wordsToRemove);
+            input = RemoveWord(input, word);
         }
 
         return input;
