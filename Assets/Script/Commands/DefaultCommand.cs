@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Kepler/Actions/DefaultCommand")]
+[CreateAssetMenu(menuName="Kepler/Commands/DefaultCommand")]
 public class DefaultCommand : Command {
-    public override void Execute(string input) {
-        Log (input[0]+" : input not recognized");
+    public override void Execute(string verb, string noun) {
+        TerminalManager.instance.LogSystemMessage ("input not recognized");
     }
 }

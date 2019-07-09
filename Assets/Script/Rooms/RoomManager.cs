@@ -12,6 +12,6 @@ public class RoomManager : MonoBehaviour {
 
     public void EnterRoom (Room room) {
         currentRoom = room;
-        TerminalManager.instance.LogSystemAnswer(currentRoom.description);
+        TerminalManager.instance.LogSystemMessage(currentRoom.description);
     }
 }

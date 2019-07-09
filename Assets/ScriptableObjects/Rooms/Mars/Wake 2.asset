@@ -10,8 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99b81c62159b8ed4b9281ac69d6e588f, type: 3}
-  m_Name: Wake
+  m_Name: Wake 2
   m_EditorClassIdentifier: 
   verbs:
   - wake
   - unfreeze
+  nouns:
+  - henri
+  - baba
+  - dodo
+  - coco
+  - chouqi

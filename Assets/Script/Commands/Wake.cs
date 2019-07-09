@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Kepler/Actions/Wake")]
+[CreateAssetMenu(menuName="Kepler/Commands/Wake")]
 public class Wake : Command {
-    public override void Execute () {
-        TerminalManager.instance.LogSystemAnswer ("Unfreezing " + nouns[0]);
+    public override void Execute (string verb, string noun) {
+        TerminalManager.instance.LogSystemMessage ("Unfreezing " + noun);
     }
 }

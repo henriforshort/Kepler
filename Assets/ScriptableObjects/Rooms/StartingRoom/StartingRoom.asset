@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a2436293829744a2f6ef95c598e80, type: 3}
   m_Name: StartingRoom
   m_EditorClassIdentifier: 
-  exits:
-  - commands:
-    - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
-    nextRoom: {fileID: 11400000, guid: 92c6491fd7d7120479eb6554c6a347ad, type: 2}
+  commands:
+  - {fileID: 11400000, guid: 33d7bdde384350b4d81e6dbd4bce4e54, type: 2}
+  - {fileID: 11400000, guid: 38d194b9ef7b70f4488cf6629e7d6379, type: 2}
+  - {fileID: 11400000, guid: 4c036788c565b244f8878eebd0570a28, type: 2}
   description: 'It''s so dark out there... I wonder when we''re going to get back
     home.
 
-
-    Asteroids everywhere, Mars to our right. Picking up a signal from the south.'
+    The ship''s sensors are just detecting asteroids everywhere, but you can pick
+    up a radio signal from the south.'

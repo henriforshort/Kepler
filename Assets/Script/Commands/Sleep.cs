@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Kepler/Actions/Sleep")]
+[CreateAssetMenu(menuName="Kepler/Commands/Sleep")]
 public class Sleep : Command {
-    public override void Execute() {
-        TerminalManager.instance.LogSystemAnswer ("putting " + nouns[0] + " to sleep");
+    public override void Execute(string verb, string noun) {
+        TerminalManager.instance.LogSystemMessage ("putting " + noun + " to sleep");
     }
 }
