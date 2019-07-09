@@ -49,10 +49,9 @@ public class TerminalManager : MonoBehaviour {
     }
 
     private IEnumerator _LogSystemAnswer (string text) {
-        AddToLog ("");
-        for (int i=0; i<text.Length; i++) {
+        foreach (char letter in text) {
             yield return new WaitForSeconds (1/lettersPerSec);
-            AddToLog(text[i].ToString());
+            AddToLog(letter.ToString());
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName="Kepler/Room")]
 public class Room : ScriptableObject {
-    public List<Exit> exits;
+    public List<Command> commands;
     [TextArea]
     public string description;
 }

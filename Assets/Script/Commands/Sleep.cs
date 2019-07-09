@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName="Kepler/Actions/Sleep")]
 public class Sleep : Command {
-    public override void Execute(string input) {
-        Log ("putting " + RemoveVerbs(input) + " to sleep");
+    public override void Execute() {
+        TerminalManager.instance.LogSystemAnswer ("putting " + nouns[0] + " to sleep");
     }
 }

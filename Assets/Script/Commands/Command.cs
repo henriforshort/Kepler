@@ -3,35 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+//1 command per effect (Execute method)
+//1 instance per verb/noun set (i.e 1 instance per Execute method+parameters)
+
 public abstract class Command : ScriptableObject {
     public List<string> verbs;
+    public List<string> nouns;
 
-    public abstract void Execute (string input);
+    public abstract void Execute ();
 
-    protected void Log (string text) {
-        TerminalManager.instance.LogSystemAnswer(text);
-    }
+    public bool CanParse (string input) {
+        List<string> inputWords = input.ToLower().Split(new char[] {' '}).ToList();
 
-    protected string RemoveWord (string input, string wordToRemove) {
-        List<string> words = input.Split(new char[] {' '}).ToList();
-        foreach (string w in words) {
-            if (w.ToLower() == wordToRemove.ToLower()) {
-                words.Remove(w);
+        //Parse verb
+        bool containsVerb = true;
+        foreach (string verb in verbs) {
+            if (inputWords.Contains(verb.ToLower())) { //TODO : method containsSequence for multi-word verbs
+
+                //Parse noun
+                foreach (string noun in nouns) {
+                    if (inputWords.Contains(noun.ToLower())) {
+                        return true;
+                    }
+                }
+
             }
         }
 
-        return string.Join(" ", words.ToArray());
-    }
-
-    protected string RemoveWords (string input, List<string> wordsToRemove) {
-        foreach (string word in wordsToRemove) {
-            input = RemoveWord(input, word);
-        }
-
-        return input;
-    }
-
-    protected string RemoveVerbs (string input) {
-        return RemoveWords(input, verbs);
+        return false;
     }
 }
