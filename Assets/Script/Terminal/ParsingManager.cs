@@ -19,27 +19,13 @@ public class ParsingManager : MonoBehaviour {
     }
 
     public void Parse (string input) {
-        string [] words = input.Split(new char[] {' '});
-
-        bool answered = false;
-
-        foreach (Exit exit in RoomManager.instance.currentRoom.exits) {
-            foreach (Command command in exit.commands) {
-                foreach (string verb in command.verbs) {
-                    if (words[0].ToLower() == verb.ToLower()) {
-                        command.Execute(input);
-                        RoomManager.instance.EnterRoom(exit.nextRoom);
-                        answered = true;
-                        break;
-                    }
-                }
-                if (answered) break;
+        foreach (Command command in RoomManager.instance.currentRoom.commands) {
+            if (command.CanParse(input)) {
+                command.Execute();
+                return null;
             }
-            if (answered) break;
         }
 
-        if (!answered) {
-            defaultCommand.Execute(input);
-        }
+        defaultCommand.Execute();
     }
 }
