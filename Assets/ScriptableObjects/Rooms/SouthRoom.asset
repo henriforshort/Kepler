@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a2436293829744a2f6ef95c598e80, type: 3}
   m_Name: SouthRoom
   m_EditorClassIdentifier: 
-  exits: []
+  exits:
+  - commands:
+    - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
+    nextRoom: {fileID: 11400000, guid: c7c341db62f35124da6bb32816bc8546, type: 2}
+  description: It seems that it was just random noise... Let's get back on track.

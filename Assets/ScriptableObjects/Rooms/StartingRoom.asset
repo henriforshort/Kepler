@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46a2436293829744a2f6ef95c598e80, type: 3}
   m_Name: StartingRoom
   m_EditorClassIdentifier: 
+  exits:
+  - commands:
+    - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
+    nextRoom: {fileID: 11400000, guid: 92c6491fd7d7120479eb6554c6a347ad, type: 2}
+  description: 'It''s so dark out there... I wonder when we''re going to get back
+    home.
+
+
+    Asteroids everywhere, Mars to our right. Picking up a signal from the south.'
