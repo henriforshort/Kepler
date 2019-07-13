@@ -11,16 +11,12 @@ public class ParsingManager : MonoBehaviour {
 
     //[Header("STATE")]
 
-    [HideInInspector]
-    public static ParsingManager instance;
-
-    private void Start () {
-        instance = this;
-    }
+    //SHORTCUTS
+    public GameManager gm { get { return GameManager.instance; } }
 
     public void Parse (string input) {
         List<string> inputWords = input.ToLower().Split(new char[] {' '}).ToList();
-        foreach (Command command in RoomManager.instance.currentRoom.commands) {
+        foreach (Command command in gm.rooms.currentRoom.commands) {
 
             //Parse verb
             foreach (string verb in command.verbs) {

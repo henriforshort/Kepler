@@ -15,14 +15,14 @@ public class TerminalManager : MonoBehaviour {
     [Header("STATE")]
     public List<char> textToDisplay = new List<char>();
 
-    [HideInInspector]
-    public static TerminalManager instance;
+    //SHORTCUTS
+    public GameManager gm { get { return GameManager.instance; } }
 
     private void Start () {
         ResetInputField ();
         ClearLog();
-        instance = this;
-        LogSystemMessage(RoomManager.instance.currentRoom.description);
+        StartCoroutine(StartTerminal());
+        LogSystemMessage(gm.rooms.currentRoom.description);
     }
 
     private void Update () {
@@ -34,7 +34,7 @@ public class TerminalManager : MonoBehaviour {
 
         if (input != "") {
             LogPlayerCommand(input);
-            ParsingManager.instance.Parse(input);
+            gm.parser.Parse(input);
         }
     }
 
@@ -48,19 +48,17 @@ public class TerminalManager : MonoBehaviour {
     }
 
     public void LogSystemMessage (string text) {
-        if (textToDisplay.Count == 0) {
-            StartCoroutine(_LogSystemAnswer("\n"+text+""));
-        } else {
-            textToDisplay.AddRange(("\n"+text+"").ToList());
-        }
+        textToDisplay.AddRange(("\n"+text+"").ToList());
     }
 
-    private IEnumerator _LogSystemAnswer (string text) {
-        textToDisplay.AddRange((text).ToList());
-        while (textToDisplay.Count > 0) {
+    private IEnumerator StartTerminal () {
+        while (true) {
             yield return new WaitForSeconds (1/lettersPerSec);
-            AddToLog(textToDisplay[0].ToString());
-            textToDisplay.RemoveAt(0);
+            
+            if (textToDisplay.Count != 0) {
+                AddToLog(textToDisplay[0].ToString());
+                textToDisplay.RemoveAt(0);
+            }
         }
     }
 

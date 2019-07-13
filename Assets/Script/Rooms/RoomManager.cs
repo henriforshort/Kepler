@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour {
     public Room currentRoom;
-    public static RoomManager instance;
 
-    private void Start () {
-        instance = this;
-    }
+    //SHORTCUTS
+    public GameManager gm { get { return GameManager.instance; } }
 
     public void EnterRoom (Room room) {
         currentRoom = room;
-        TerminalManager.instance.LogSystemMessage(currentRoom.description);
+        gm.terminal.LogSystemMessage(currentRoom.description);
     }
 }

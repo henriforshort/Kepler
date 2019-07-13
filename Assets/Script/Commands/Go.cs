@@ -6,7 +6,7 @@ using UnityEngine;
 public class Go : Command {
     public Room nextRoom;
     public override void Execute(string verb, string noun) {
-        TerminalManager.instance.LogSystemMessage ("Going " + noun);
-        RoomManager.instance.EnterRoom(nextRoom);
+        gm.terminal.LogSystemMessage ("Going " + noun);
+        gm.rooms.EnterRoom(nextRoom);
     }
 }

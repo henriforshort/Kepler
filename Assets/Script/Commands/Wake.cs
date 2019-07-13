@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Kepler/Commands/Wake")]
 public class Wake : Command {
     public override void Execute (string verb, string noun) {
-        TerminalManager.instance.LogSystemMessage ("Unfreezing " + noun);
+        gm.terminal.LogSystemMessage ("Unfreezing " + noun);
     }
 }

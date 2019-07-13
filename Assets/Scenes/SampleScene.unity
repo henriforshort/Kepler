@@ -129,11 +129,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173884879}
-  - component: {fileID: 173884878}
-  - component: {fileID: 173884880}
+  - component: {fileID: 173884882}
   - component: {fileID: 173884881}
+  - component: {fileID: 173884880}
+  - component: {fileID: 173884878}
   m_Layer: 0
-  m_Name: TerminalManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +196,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCommand: {fileID: 11400000, guid: bc32456092b2b6340bcc69ec66b81f5b, type: 2}
+--- !u!114 &173884882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173884877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7809b875e7ee53a4ca630fcf00ca863d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parser: {fileID: 173884881}
+  rooms: {fileID: 173884880}
+  terminal: {fileID: 173884878}
 --- !u!1 &207613059
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +497,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -787,7 +803,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1182,7 +1198,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 311
+  m_firstOverflowCharacterIndex: 288
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
