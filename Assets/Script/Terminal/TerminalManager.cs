@@ -17,31 +17,34 @@ public class TerminalManager : MonoBehaviour {
 
     //SHORTCUTS
     public GameManager gm { get { return GameManager.instance; } }
+    
+    //--------------------
+    // BASIC METHODS
+    //--------------------
 
     private void Start () {
-        ResetInputField ();
+        ClearInputField ();
         ClearLog();
         StartCoroutine(StartTerminal());
         LogSystemMessage(gm.rooms.currentRoom.description);
     }
 
     private void Update () {
-        if (Input.GetKeyDown(KeyCode.Return) && textToDisplay.Count == 0) SubmitInput(inputField.text);
-    }
-
-    private void SubmitInput (string input) {
-        ResetInputField ();
-
-        if (input != "") {
-            LogPlayerCommand(input);
-            gm.parser.Parse(input);
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            if (textToDisplay.Count == 0) {
+                SubmitInput(inputField.text);
+            } else {
+                foreach (char character in textToDisplay) {
+                    AddToLog(character);
+                }
+                textToDisplay.Clear();
+            }
         }
     }
-
-    private void ResetInputField () {
-        inputField.ActivateInputField();
-        inputField.text = null;
-    }
+    
+    //--------------------
+    // PUBLIC METHODS
+    //--------------------
 
     public void LogPlayerCommand (string text) {
         AddToLogYellow("\n\n> "+text);
@@ -50,20 +53,34 @@ public class TerminalManager : MonoBehaviour {
     public void LogSystemMessage (string text) {
         textToDisplay.AddRange(("\n"+text+"").ToList());
     }
+    
+    //--------------------
+    // PRIVATE METHODS
+    //--------------------
 
     private IEnumerator StartTerminal () {
         while (true) {
             yield return new WaitForSeconds (1/lettersPerSec);
             
             if (textToDisplay.Count != 0) {
-                AddToLog(textToDisplay[0].ToString());
+                AddToLog(textToDisplay[0]);
                 textToDisplay.RemoveAt(0);
             }
         }
     }
 
-    private void AddToLog (string text) {
-        log.text += text;
+    private void SubmitInput (string input) {
+        ClearInputField ();
+
+        input = input.Trim();
+        if (input != "") {
+            LogPlayerCommand(input);
+            gm.commands.Parse(input);
+        }
+    }
+
+    private void AddToLog (char characterToAdd) {
+        log.text += characterToAdd;
     }
 
     private void AddToLogYellow (string text) {
@@ -72,5 +89,10 @@ public class TerminalManager : MonoBehaviour {
 
     private void ClearLog () {
         log.text = null;
+    }
+
+    private void ClearInputField () {
+        inputField.ActivateInputField();
+        inputField.text = null;
     }
 }

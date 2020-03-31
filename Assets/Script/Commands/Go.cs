@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Kepler/Commands/Go")]
 public class Go : Command {
     public Room nextRoom;
-    public override void Execute(string verb, string noun) {
-        gm.terminal.LogSystemMessage ("Going " + noun);
+    public override void Execute(string input) {
         gm.rooms.EnterRoom(nextRoom);
     }
 }

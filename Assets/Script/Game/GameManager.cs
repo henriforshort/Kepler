@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour {
         if (instance == this) instance = null;
     }
 
-    public ParsingManager parser;
+    public CommandManager commands;
     public RoomManager rooms;
     public TerminalManager terminal;
 }

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629c5fdfaf4cfd74e814f6a8c596fa79, type: 3}
   m_Name: DefaultCommand
   m_EditorClassIdentifier: 
-  verb: 
+  verbs: []
+  nouns: []
+  wrongArgmentResponse: 'unrecognized command : '
