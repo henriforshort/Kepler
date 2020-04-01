@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Kepler/Commands/DefaultCommand")]
 public class DefaultCommand : Command {
     public override void Execute(string input) {
-        base.Execute(input.Split(' ')[0]);
+        gm.terminal.LogSystemMessage (
+            answer.ReplaceCaseInsensitive("XXX", input.Split(' ')[0]));
     }
 
     public override void LogWrongArgumentAnswer(string input) {

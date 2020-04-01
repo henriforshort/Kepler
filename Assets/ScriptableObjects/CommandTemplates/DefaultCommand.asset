@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verbs: []
   nouns: []
-  answer: 
+  answer: 'unrecognized command : xxx'
   wrongArgumentAnswer: 'unrecognized command : XXX'

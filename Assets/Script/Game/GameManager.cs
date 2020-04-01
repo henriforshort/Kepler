@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
         if (instance == this) instance = null;
     }
 
-    public CommandManager commands;
+    public ParsingManager parser;
     public RoomManager rooms;
     public TerminalManager terminal;
 }

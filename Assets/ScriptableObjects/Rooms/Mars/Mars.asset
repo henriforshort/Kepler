@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mars
   m_EditorClassIdentifier: 
   commands:
-  - {fileID: 11400000, guid: 7d9ffdcce4b24224c9602ed100c2325b, type: 2}
-  - {fileID: 11400000, guid: f63ecd5a19f2c76408f28a178839bce5, type: 2}
+  - {fileID: 11400000, guid: f7bfeefc2de572b41864138970e70526, type: 2}
+  - {fileID: 11400000, guid: 0b54a924e5c611d4d8b159719421ce16, type: 2}
   description: You suddenly see Mars to your right. It's a stunning view !
+  exits: []

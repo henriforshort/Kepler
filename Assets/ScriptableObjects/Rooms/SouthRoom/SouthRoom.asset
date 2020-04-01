@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: SouthRoom
   m_EditorClassIdentifier: 
   commands:
-  - {fileID: 11400000, guid: f89c8bdc0c928f842a138102ae6d7b78, type: 2}
-  - {fileID: 11400000, guid: a3d0a877ed65ce448966ba82d31490b0, type: 2}
-  - {fileID: 11400000, guid: 5bb407c8b743b7242adad47b16655e89, type: 2}
+  - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
+  - {fileID: 11400000, guid: f7bfeefc2de572b41864138970e70526, type: 2}
+  - {fileID: 11400000, guid: 0b54a924e5c611d4d8b159719421ce16, type: 2}
   description: It seems that it was just random noise... Let's get back on track.
+  exits:
+  - direction: East
+    nextRoom: {fileID: 11400000, guid: 1e5f20a7f65e32b4bb1a0d7a1203062d, type: 2}

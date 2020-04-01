@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: StartingRoom
   m_EditorClassIdentifier: 
   commands:
-  - {fileID: 11400000, guid: 33d7bdde384350b4d81e6dbd4bce4e54, type: 2}
-  - {fileID: 11400000, guid: 38d194b9ef7b70f4488cf6629e7d6379, type: 2}
-  - {fileID: 11400000, guid: 4c036788c565b244f8878eebd0570a28, type: 2}
+  - {fileID: 11400000, guid: 2c0be2d4c95400749a2b32526f4694f9, type: 2}
+  - {fileID: 11400000, guid: f7bfeefc2de572b41864138970e70526, type: 2}
+  - {fileID: 11400000, guid: 0b54a924e5c611d4d8b159719421ce16, type: 2}
   description: 'It''s so dark out there... I wonder when we''re going to get back
     home.
 
     The ship''s sensors are just detecting asteroids everywhere, but you can pick
     up a radio signal from the south.'
+  exits:
+  - direction: south
+    nextRoom: {fileID: 11400000, guid: 92c6491fd7d7120479eb6554c6a347ad, type: 2}

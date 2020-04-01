@@ -14,39 +14,18 @@ public abstract class Command : ScriptableObject {
 
     //SHORTCUTS
     public GameManager gm { get { return GameManager.instance; } }
+    
+    //--------------------
+    // VIRTUAL METHODS
+    //--------------------
+    
+    public virtual void Initialize () { }
 
     public virtual void Execute(string input) {
-        gm.terminal.LogSystemMessage (answer.Replace("XXX", GetNoun(input)));
+        gm.terminal.LogSystemMessage (answer.ReplaceCaseInsensitive("XXX", input.GetNoun(this)));
     }
 
     public virtual void LogWrongArgumentAnswer(string input) {
-        gm.terminal.LogSystemMessage (wrongArgumentAnswer.Replace("XXX", GetNoun(input)));
-    }
-
-    public bool ContainsVerb(string input) {
-        foreach (string verb in verbs) {
-            if (input.StartsWith(verb)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public bool IsValid(string input) {
-        return ContainsVerb(input) && nouns.Contains(GetNoun(input));
-    }
-
-    public string GetVerb(string input) {
-        input = input.Trim();
-        foreach (string verb in verbs) {
-            if (input.StartsWith(verb)) {
-                return verb;
-            }
-        }
-        return input.Split(' ')[0];
-    }
-
-    public string GetNoun(string input) {
-        return input.Replace(GetVerb(input), "").Trim();
+        gm.terminal.LogSystemMessage (wrongArgumentAnswer.ReplaceCaseInsensitive("XXX", input.GetNoun(this)));
     }
 }

@@ -15,6 +15,6 @@ MonoBehaviour:
   verbs:
   - go
   nouns:
-  - south
-  - north
-  nextRoom: {fileID: 0}
+  - East
+  answer: going XXX
+  wrongArgumentAnswer: can't go XXX

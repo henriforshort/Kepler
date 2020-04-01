@@ -7,4 +7,11 @@ public class Room : ScriptableObject {
     public List<Command> commands;
     [TextArea]
     public string description;
+    public List<Exit> exits;
+}
+
+[System.Serializable]
+public struct Exit {
+    public string direction;
+    public Room nextRoom;
 }

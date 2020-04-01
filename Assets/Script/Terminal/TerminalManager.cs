@@ -11,6 +11,7 @@ public class TerminalManager : MonoBehaviour {
     [Header("REFERENCES")]
     public TextMeshProUGUI log;
     public TMP_InputField inputField;
+    public TMP_InputField predictiveText;
     
     [Header("STATE")]
     public List<char> textToDisplay = new List<char>();
@@ -26,19 +27,18 @@ public class TerminalManager : MonoBehaviour {
         ClearInputField ();
         ClearLog();
         StartCoroutine(StartTerminal());
-        LogSystemMessage(gm.rooms.currentRoom.description);
     }
 
     private void Update () {
-        if (Input.GetKeyDown(KeyCode.Return)) {
-            if (textToDisplay.Count == 0) {
-                SubmitInput(inputField.text);
-            } else {
-                foreach (char character in textToDisplay) {
-                    AddToLog(character);
-                }
-                textToDisplay.Clear();
+        if (Input.GetKeyDown(KeyCode.Return) && textToDisplay.Count == 0) {
+            SubmitInput(inputField.text);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Tab) && textToDisplay.Count != 0) {
+            foreach (char character in textToDisplay) {
+                AddToLog(character);
             }
+            textToDisplay.Clear();
         }
     }
     
@@ -75,7 +75,7 @@ public class TerminalManager : MonoBehaviour {
         input = input.Trim();
         if (input != "") {
             LogPlayerCommand(input);
-            gm.commands.Parse(input);
+            gm.parser.Parse(input);
         }
     }
 
