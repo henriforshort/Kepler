@@ -164,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173884877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 366.69995, y: 30.795013, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -179,10 +179,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 173884877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373282f9d128d3142b4691f49fd2d7fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 34411e3b57258ac4a8f8edbd123c6d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRoom: {fileID: 11400000, guid: c7c341db62f35124da6bb32816bc8546, type: 2}
+  defaultCommand: {fileID: 11400000, guid: bc32456092b2b6340bcc69ec66b81f5b, type: 2}
 --- !u!114 &173884881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 173884877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34411e3b57258ac4a8f8edbd123c6d55, type: 3}
+  m_Script: {fileID: 11500000, guid: 373282f9d128d3142b4691f49fd2d7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCommand: {fileID: 11400000, guid: bc32456092b2b6340bcc69ec66b81f5b, type: 2}
+  currentRoom: {fileID: 11400000, guid: c7c341db62f35124da6bb32816bc8546, type: 2}
 --- !u!114 &173884882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7809b875e7ee53a4ca630fcf00ca863d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parser: {fileID: 173884881}
-  rooms: {fileID: 173884880}
+  commands: {fileID: 173884880}
+  rooms: {fileID: 173884881}
   terminal: {fileID: 173884878}
 --- !u!1 &207613059
 GameObject:
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 1334399271}
   - component: {fileID: 1334399270}
   m_Layer: 5
-  m_Name: InputField (1)
+  m_Name: '>'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

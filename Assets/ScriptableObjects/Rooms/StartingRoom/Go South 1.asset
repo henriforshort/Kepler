@@ -16,4 +16,6 @@ MonoBehaviour:
   - go
   nouns:
   - south
+  answer: going XXX
+  wrongArgumentAnswer: can't go XXX
   nextRoom: {fileID: 11400000, guid: 92c6491fd7d7120479eb6554c6a347ad, type: 2}

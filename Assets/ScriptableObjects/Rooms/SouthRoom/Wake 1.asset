@@ -21,3 +21,5 @@ MonoBehaviour:
   - dodo
   - coco
   - chouqi
+  answer: waking XXX
+  wrongArgumentAnswer: you don't have a crewmember named XXX

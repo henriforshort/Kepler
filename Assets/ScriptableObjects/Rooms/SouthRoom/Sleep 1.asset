@@ -20,3 +20,5 @@ MonoBehaviour:
   - dodo
   - coco
   - chouqi
+  answer: putting XXX to sleep
+  wrongArgumentAnswer: you don't have a crewmember named XXX
